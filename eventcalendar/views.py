@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from models import Event, Game, Lan, Tournament
+from eventcalendar.models import Event, Game, Lan, Tournament
 
 # Create your views here.
 def home(request):
