@@ -4,7 +4,7 @@ from eventcalendar import views
 urlpatterns = [
     path('', views.home, name="home"  ),
     path('calendar/', views.calendar, name = "calendar"),
-    path('results/', views.results, name = 'reuslts'),
+    path('results/', views.results, name = 'results'),
     path('rosters/', views.rosters, name = 'rosters'),
     path('officers/', views.officers, name = 'officers'),
     path('minutes/', views.minutes, name = 'minutes'),
