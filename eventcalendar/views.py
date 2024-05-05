@@ -1,3 +1,4 @@
+from datetime import datetime
 from django.shortcuts import render
 from eventcalendar.models import Event, Game, Lan, Tournament
 
@@ -6,6 +7,10 @@ def home(request):
     return render(request, 'home.html')
 
 def calendar(request):
+    # PASS LIST OF EVENTS THAT HAVE NOT HAPPENED
+
+    current_datetime = datetime.now()
+    
     return render(request, 'calendar.html')
 
 def results(request):
