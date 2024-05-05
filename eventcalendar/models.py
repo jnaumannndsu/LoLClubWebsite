@@ -61,7 +61,7 @@ class result(models.Model):
     score = models.CharField(max_length=5)
     division = models.CharField(max_length=20)
     
-class hof(models.Model):
+class Hof(models.Model):
     tourneyName = models.CharField(max_length=30)
     teamName = models.CharField(max_length=30)
     player1 = models.CharField(max_length=30)
