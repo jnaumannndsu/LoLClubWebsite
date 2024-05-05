@@ -10,8 +10,8 @@ def calendar(request):
     # PASS LIST OF EVENTS THAT HAVE NOT HAPPENED
 
     current_datetime = datetime.now()
-    
-    return render(request, 'calendar.html')
+    events = Event.objects.filter(endTime__gte = current_datetime)
+    return render(request, 'calendar.html', {'events' : events})
 
 def results(request):
     return render(request, 'results.html')

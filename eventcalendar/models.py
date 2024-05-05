@@ -3,9 +3,8 @@ from django.urls import reverse
 
 # Create your models here.
 class Event(models.Model):
-    """Model for calendar events."""
     eventID = models.BigAutoField(primary_key=True)
-    startTime = models.DateTimeField()
+    startTime = models.DateTimeField(blank=True)
     endTime = models.DateTimeField()
     eventName = models.CharField(default="New Event", max_length=160)
 
@@ -55,5 +54,21 @@ class Game(models.Model):
         ('n', 'None'),
     )
     status = models.CharField(max_length=1, choices=STREAM_STATUS, blank=True, default='n', help_text='Where streamed')
-    
 
+class result(models.Model):
+    name = models.CharField(max_length=50)
+    date = models.DateField()
+    score = models.CharField(max_length=5)
+    division = models.CharField(max_length=20)
+    
+class hof(models.Model):
+    tourneyName = models.CharField(max_length=30)
+    teamName = models.CharField(max_length=30)
+    player1 = models.CharField(max_length=30)
+    player2 = models.CharField(max_length=30)
+    player3 = models.CharField(max_length=30)
+    player4 = models.CharField(max_length=30)
+    player5 = models.CharField(max_length=30)
+
+    def __str__(self):
+        return self.tourneyName
