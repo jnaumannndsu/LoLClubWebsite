@@ -7,12 +7,12 @@ class Event(models.Model):
     startTime = models.DateTimeField(blank=True)
     endTime = models.DateTimeField()
     eventName = models.CharField(default="New Event", max_length=160)
-
+    
     def __str__(self):
         return self.eventName
     
     def get_absolute_url(self):
-        return reverse("event_detail", kwargs={"pk": self.pk})
+        return reverse("event-detail", args=[str(self.eventID)])
     
 
 

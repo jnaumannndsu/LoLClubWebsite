@@ -5,7 +5,8 @@
 {% if events %}
 
 {% for e in events %}
-<p>{{e.eventName}}</p>
+<a href = "{{ e.get_absolute_url }}"> {{ e.eventName }} </a>
+<br></br>
 {% endfor %}
 {% else %}
 <p> 
