@@ -1,5 +1,6 @@
 from django.db import models
 from django.core.validators import MaxValueValidator, MinValueValidator
+from django.urls import reverse
 
 # Create your models here.
 class Game(models.Model):
@@ -37,3 +38,7 @@ class Player(models.Model):
 
     def __str__(self):
         return self.name
+    
+    def get_absolute_url(self):
+        return reverse("player-detail", args=[str(self.playerid)])
+    
