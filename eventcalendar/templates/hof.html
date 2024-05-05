@@ -1,5 +1,14 @@
 {% extends "base_generic.html" %}
 
 {% block content %}
+{% if hofs %}
 
+{% for h in hofs %}
+<p>{{e.eventName}}</p>
+{% endfor %}
+{% else %}
+<p> 
+    No tournament winners 
+</p>
+{% endif %}
 {% endblock %}
