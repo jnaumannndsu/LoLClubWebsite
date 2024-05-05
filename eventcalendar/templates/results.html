@@ -5,7 +5,19 @@
 {% if results %}
 
 {% for r in results %}
-<h1>{{r.name}}</h1>
+<div class="row">
+    <div class="col-sm-4"></div>
+<div class="card" style="width: 450px;">
+    <div class="card-header" style="text-align: center">
+        {{r.name}} - {{r.date}}
+    </div>
+    <ul class="list-group list-group-flush">
+      <li class="list-group-item" style="text-align: center">{{r.score}}</li>
+      <li class="list-group-item" style="text-align: center">{{r.division}}</li>
+    </ul>
+  </div>
+  <div class="col-sm-4"></div>
+</div>
 
 {% endfor %}
 {% else %}
