@@ -55,7 +55,7 @@ class Game(models.Model):
     )
     status = models.CharField(max_length=1, choices=STREAM_STATUS, blank=True, default='n', help_text='Where streamed')
 
-class result(models.Model):
+class Result(models.Model):
     name = models.CharField(max_length=50)
     date = models.DateField()
     score = models.CharField(max_length=5)
