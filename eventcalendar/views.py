@@ -1,6 +1,6 @@
 from datetime import datetime
 from django.shortcuts import render
-from eventcalendar.models import Event, Game, Lan, Tournament
+from eventcalendar.models import Event, Game, Lan, Tournament, Hof
 
 # Create your views here.
 def home(request):
@@ -26,4 +26,5 @@ def minutes(request):
     return render(request, 'minutes.html')
 
 def hof(request):
-    return render(request, 'hof.html')
+    hofs = Hof.objects.all()
+    return render(request, 'hof.html', {'hofs' : hofs})
