@@ -15,7 +15,7 @@ def rosters(request):
     return render(request, 'rosters.html')
 
 def officers(request):
-    return render(request, 'offciers.html')
+    return render(request, 'officers.html')
 
 def minutes(request):
     return render(request, 'minutes.html')
