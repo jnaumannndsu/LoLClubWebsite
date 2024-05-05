@@ -10,5 +10,6 @@ urlpatterns = [
     path('minutes/', views.minutes, name = 'minutes'),
     path('hof/', views.hof, name = 'hof'),
     #me trying to make event detail view 
-    path('calendar/<int:pk>', views.eventDetailView.as_view(), name = 'event-detail')
+    path('calendar/<int:pk>', views.eventDetailView.as_view(), name = 'event-detail'),
+    path('stats/', include('statsviewer.urls')),
 ]
