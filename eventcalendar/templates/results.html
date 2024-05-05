@@ -2,4 +2,16 @@
 
 {% block content %}
 
+{% if results %}
+
+{% for r in results %}
+<h1>{{r.name}}</h1>
+
+{% endfor %}
+{% else %}
+<p> 
+    No results
+</p>
+{% endif %}
+
 {% endblock %}
