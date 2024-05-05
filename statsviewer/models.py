@@ -26,6 +26,14 @@ class PlayerInstance(models.Model):
     ign = models.CharField(max_length=30)
     player = models.ForeignKey('Player', on_delete=models.RESTRICT)
 
+    def __str__(self):
+        return self.ign + "--" + str(self.instanceid)
+
 class Player(models.Model):
+    class Meta:
+        unique_together = (('playerid','name'),)
     playerid = models.BigAutoField(primary_key=True)
     name = models.CharField(max_length=60)
+
+    def __str__(self):
+        return self.name
