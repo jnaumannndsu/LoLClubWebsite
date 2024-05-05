@@ -1,5 +1,15 @@
 {% extends "base_generic.html" %}
 
 {% block content %}
+{% if hofs %}
 
+{% for h in hofs %}
+<h1>{{h.tourneyName}}</h1>
+<p>{{h.player1}}<br>{{h.player2}}<br>{{h.player3}}<br>{{h.player4}}<br>{{h.player5}}</p>
+{% endfor %}
+{% else %}
+<p> 
+    No tournament winners 
+</p>
+{% endif %}
 {% endblock %}

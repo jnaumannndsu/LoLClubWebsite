@@ -1,6 +1,6 @@
 from datetime import datetime
 from django.shortcuts import render
-from eventcalendar.models import Event, Game, Lan, Tournament, Hof
+from eventcalendar.models import Event, Game, Lan, Tournament, Hof, Result
 
 # Create your views here.
 def home(request):
@@ -14,7 +14,8 @@ def calendar(request):
     return render(request, 'calendar.html', {'events' : events})
 
 def results(request):
-    return render(request, 'results.html')
+    results = Result.objects.all()
+    return render(request, 'results.html', {'results' : results})
 
 def rosters(request):
     return render(request, 'rosters.html')

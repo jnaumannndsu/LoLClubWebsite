@@ -1,1 +1,15 @@
 {% extends "base_generic.html" %}
+
+{% block content %}
+
+{% if events %}
+
+{% for e in events %}
+<p>{{e.eventName}}</p>
+{% endfor %}
+{% else %}
+<p> 
+    No upcoming events cutie!
+</p>
+{% endif %}
+{% endblock %}
