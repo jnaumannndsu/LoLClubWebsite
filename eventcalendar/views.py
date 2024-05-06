@@ -35,3 +35,9 @@ def hof(request):
 
 class eventDetailView(generic.DetailView):
     model = Event
+
+from django.views.generic.edit import CreateView, UpdateView, DeleteView
+
+class EventCreate(CreateView):
+    model = Event
+    fields = ['eventID', 'startTime', 'endTime', 'eventName']
