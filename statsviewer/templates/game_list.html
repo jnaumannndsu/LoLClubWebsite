@@ -4,9 +4,10 @@
 
 
 {% for l in list %}
+<a class="nav-link" href="{{ l.0.get_absolute_url }}">
 <table>
 <tr>
-    <th class="free center {% if l.0.winner == True %} blue_team {% else %} red_team {% endif %}" colspan="4"><a class="nav-link" href="{{ l.0.get_absolute_url }}"> Game Winner : {{l.0}} </a></th>
+    <th class="free center {% if l.0.winner == True %} blue_team {% else %} red_team {% endif %}" colspan="4"> Game Winner : {{l.0}}</th>
 </tr>
     <tr class="center" style="background-color: gold;"><th>Name</th><th>KDA</th><th>Gold</th><th>Damage</th></tr>
     <tr class="blue_team"><td>{{l.1.player}}</td><td class="center">{{l.1.kills}}/{{l.1.deaths}}/{{l.1.assists}}</td><td class="center">{{l.1.gold}}</td><td class="center">{{l.1.damage}}</td></tr>
@@ -21,6 +22,7 @@
     <tr class="red_team"><td>{{l.10.player}}</td><td class="center">{{l.10.kills}}/{{l.10.deaths}}/{{l.10.assists}}</td><td class="center">{{l.10.gold}}</td><td class="center">{{l.10.damage}}</td></tr>
 </br>
 </table>
+</a>
 {% endfor %}
 
 {% else %}
