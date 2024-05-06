@@ -11,6 +11,8 @@ class Game(models.Model):
         if self.winner == True:
             return "Blue | ID: " + str(self.gameid)
         return "Red | ID: " + str(self.gameid)
+    def get_absolute_url(self):
+        return reverse("game-detail", args=[str(self.gameid)])
 
 
 class PlayerInstance(models.Model):
