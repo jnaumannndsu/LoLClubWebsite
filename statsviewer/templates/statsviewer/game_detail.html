@@ -1,5 +1,15 @@
 {% extends "stats_generic.html" %}
 {% block content %}
+<nav style="margin-left: 15px;" aria-label="breadcrumb">
+    <ol class="breadcrumb">
+      <li class="breadcrumb-item"><a href="{% url 'go-home' %}">Home</a></li>
+      <li class="breadcrumb-item"><a href="{% url 'stats-home' %}">LAN Stats</a></li>
+      <li class="breadcrumb-item"><a href="{% url 'game-list' %}">LAN Games</a></li>
+      <li class="breadcrumb-item active" aria-current="page">Game View</li>
+    </ol> 
+</nav>
+<hr>
+{% if list %}
 <table>
     <tr>
         <th class="free center {% if list.0.winner == True %} blue_team {% else %} red_team {% endif %}" colspan="4"><a class="nav-link" href="{{ list.0.get_absolute_url }}"> Game Winner : {{list.0}} </a></th>
@@ -17,4 +27,7 @@
         <tr class="red_team"><td>{{list.10.player}}</td><td class="center">{{list.10.kills}}/{{list.10.deaths}}/{{list.10.assists}}</td><td class="center">{{list.10.gold}}</td><td class="center">{{list.10.damage}}</td></tr>
     </br>
     </table>
+{% else %}
+<p>No game found.</p>
+{% endif %}
 {% endblock %}

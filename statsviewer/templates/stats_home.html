@@ -1,14 +1,14 @@
 {% extends "stats_generic.html" %}
 {% block content %}
 
-<nav aria-label="breadcrumb">
+<nav style="margin-left: 15px;" aria-label="breadcrumb">
   <ol class="breadcrumb">
     <li class="breadcrumb-item"><a href="{% url 'go-home' %}">Home</a></li>
     <li class="breadcrumb-item active" aria-current="page">LAN Stats</li>
   </ol> 
 </nav>
-<br>
-<a class="nav-link" href="{% url 'player-list' %}">List of Players</a>
-<a class="nav-link" href="{% url 'game-list' %}">List of Games</a>
+<hr>
+<a class="nav-link" href="{% url 'player-list' %}">Player Stats</a>
+<a class="nav-link" href="{% url 'game-list' %}">LAN Games</a>
 
 {% endblock %}

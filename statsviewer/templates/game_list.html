@@ -1,5 +1,13 @@
 {% extends "stats_generic.html" %}
 {% block content %}
+<nav style="margin-left: 15px;" aria-label="breadcrumb">
+    <ol class="breadcrumb ndsu">
+      <li class="breadcrumb-item"><a href="{% url 'go-home' %}">Home</a></li>
+      <li class="breadcrumb-item"><a href="{% url 'stats-home' %}">LAN Stats</a></li>
+      <li class="breadcrumb-item ndsu" aria-current="page">LAN Games</li>
+    </ol> 
+  </nav>
+  <hr>
 {% if list %}
 
 

@@ -1,7 +1,16 @@
 {% extends "stats_generic.html" %}
 {% block content %}
 {% if list %}
-<table>
+<nav style="margin-left: 15px;" aria-label="breadcrumb">
+    <ol class="breadcrumb">
+      <li class="breadcrumb-item"><a href="{% url 'go-home' %}">Home</a></li>
+      <li class="breadcrumb-item"><a href="{% url 'stats-home' %}">LAN Stats</a></li>
+      <li class="breadcrumb-item"><a href="{% url 'player-list' %}">Player Stats</a></li>
+      <li class="breadcrumb-item active" aria-current="page">{{list.0}} Stats</li>
+    </ol> 
+</nav>
+<hr>
+<table class="ndsu">
     <tr>
         <th>Player Name</th>
         <th>Kills</th>
@@ -26,7 +35,7 @@
 </table>
 {% else %}
 <p> 
-    No player found.
+    No player found. <a href="{% url 'player-list' %}"> View Players </a>
 </p>
 
 {% endif %}
