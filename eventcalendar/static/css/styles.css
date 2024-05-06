@@ -28,3 +28,11 @@ td {
     padding-left: 10px;
     padding-right: 10px;
 }
+
+.blue_team{
+    background-color: cornflowerblue;
+}
+
+.red_team{
+    background-color: crimson;
+}
