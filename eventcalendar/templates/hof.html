@@ -4,8 +4,22 @@
 {% if hofs %}
 
 {% for h in hofs %}
-<h1 class="center">{{h.tourneyName}}</h1>
-<p class="center">{{h.player1}}<br>{{h.player2}}<br>{{h.player3}}<br>{{h.player4}}<br>{{h.player5}}</p>
+  <div class="row justify-content-center">
+    <div class="col-sm-4"></div>
+    <div class="card bg-warning mb-3" style="color: #005643; width: 450px; margin-bottom: 10px;">
+        <div class="card-title" style="text-align: center"><h4>{{h.teamName}}</h4></div>
+        <h6 class="card-subtitle mb-2 text-muted center">{{h.tourneyName}}</h6>
+        <ul class="list-group list-group-flush">
+            <li class="list-group-item" style="text-align: center">{{h.player1}}</li>
+            <li class="list-group-item" style="text-align: center">{{h.player2}}</li>
+            <li class="list-group-item" style="text-align: center">{{h.player3}}</li>
+            <li class="list-group-item" style="text-align: center">{{h.player4}}</li>
+            <li class="list-group-item" style="text-align: center">{{h.player5}}</li>
+        </ul>
+        </div>
+        <div class="col-sm-4"></div>
+    </div>
+
 {% endfor %}
 {% else %}
 <p> 
