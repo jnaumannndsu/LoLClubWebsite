@@ -7,6 +7,12 @@ class Game(models.Model):
     gameid = models.BigAutoField(primary_key=True)
     winner = models.BooleanField(null=False)
 
+    def __str__(self):
+        if self.winner == True:
+            return "Blue | ID: " + str(self.gameid)
+        return "Red | ID: " + str(self.gameid)
+
+
 class PlayerInstance(models.Model):
     instanceid = models.BigAutoField(primary_key=True)
     game = models.ForeignKey('Game', on_delete=models.RESTRICT)
