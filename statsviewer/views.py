@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import redirect, render
 from django.views import generic
 from statsviewer.models import *
 
@@ -24,7 +24,8 @@ def playerListView(request):
     
     return render(request, 'player_list.html', {'list' : playerList})
             
-
+def gohome(request):
+    return redirect(reverse('home', current_app='eventcalendar'))
         
             
 
