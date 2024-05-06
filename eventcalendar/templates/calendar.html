@@ -5,7 +5,15 @@
 {% if events %}
 
 {% for e in events %}
-<a href = "{{ e.get_absolute_url }}"> {{ e.eventName }} </a>
+<a href = "{{ e.get_absolute_url }}">
+<div class="card text-yellow bg-success mb-3" style="max-width: 18rem;">
+    <div class="card-header">{{e.eventName}}</div>
+    <div class="card-body">
+      <h5 class="card-title">{{e.eventName}}</h5>
+      <p class="card-text">{{e.startTime}}{%if e.endTime%} - {{e.endTime}}{% endif %}</p>
+    </div>
+  </div>
+</a>
 <br></br>
 {% endfor %}
 {% else %}
