@@ -21,5 +21,6 @@ urlpatterns = [
     path('stats_home/player_list/instance/create/', views.PlayerInstanceCreate.as_view(), name = 'instance-create'),
     path('stats_home/player/instance/<int:pk>/update', views.PlayerInstanceUpdate.as_view(), name = 'instance-update'),
     path('stats_home/player/instance/<int:pk>/delete', views.PlayerInstanceDelete.as_view(), name = 'instance-delete'),
+    path('stats_home/player/instance/<int:pk>/', views.PlayerInstanceDetailView.as_view(), name = 'instance-detail'),
 ]
 

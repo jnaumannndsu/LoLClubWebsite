@@ -1,0 +1,9 @@
+{% extends 'stats_generic.html' %}
+{% block content %}
+
+{% if user.is_authenticated%}
+<li><a href="{% url 'instance-update' playerinstance.instanceid %}">Update instance</a></li>
+<li><a href="{% url 'instance-delete' playerinstance.instanceid %}">Delete instance</a></li>
+{% endif %}
+
+{% endblock %}

@@ -104,6 +104,10 @@ class gameDetailView(generic.DetailView):
         context = {'list' : dataList}
         return context
 
+class PlayerInstanceDetailView(generic.DetailView):
+    model = PlayerInstance
+    
+
 from django.contrib.auth.mixins import PermissionRequiredMixin
 
 class GameCreate(PermissionRequiredMixin, CreateView):
