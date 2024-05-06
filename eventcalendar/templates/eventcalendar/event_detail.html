@@ -1,10 +1,34 @@
 {% extends "base_generic.html" %}
 
 {% block content %}
+<h4> Event Info: </h4>
+<h4> Name -- {{ list.0.eventName }} </h4>
+<h4> Start -- {{ list.0.startTime }} </h4>
+<h4> End -- {{ list.0.endTime }} </h4>
+<h4> ID -- {{ list.0.eventID }} </h4>
+<br>
 
-<h4> Test {{ event.eventName }} </h4>
 
-<li><a href="{% url 'event-update' event.eventID %}">Update event</a></li>
-<li><a href="{% url 'event-delete' event.eventID %}">Delete event</a></li>
+{% if list.1.league %}
+<h4> Game Info:</h4>
+<h4> Team -- {{ list.1.get_team_display }} </h4>
+<h4> League -- {{ list.1.get_league_display }} </h4>
+<h4> Streamed -- {{ list.1.get_status_display }} </h4>
+{% endif %}
+
+{% if list.1.location %}
+<h4> Lan Info:</h4>
+<h4> Location -- {{ list.1.location }} </h4>
+{% endif %}
+
+{% if list.1.signup %}
+<h4> Tournament Info:</h4>
+<h4> Streamed --  {{ list.1.get_status_display }} </h4>
+<h4> Signup --  {{ list.1.signup }} </h4>
+{% endif %}
+
+
+<li><a href="{% url 'event-update' list.0.eventID %}">Update event</a></li>
+<li><a href="{% url 'event-delete' list.0.eventID %}">Delete event</a></li>
 
 {% endblock %}

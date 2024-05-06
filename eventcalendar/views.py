@@ -36,6 +36,26 @@ def hof(request):
 
 class eventDetailView(generic.DetailView):
     model = Event
+    
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        event = self.object
+        dataList = [event]
+        #Create list of games, lans, tournaments with same id
+        games = Game.objects.filter(event = event.eventID)
+        lans = Lan.objects.filter(event = event.eventID)
+        tournaments = Tournament.objects.filter(event = event.eventID)
+        #If to add specific event type to dataList
+        if games:
+            dataList.append(games[0])
+        elif lans:
+            dataList.append(lans[0])
+        elif tournaments:
+            dataList.append(tournaments[0])
+        #Create and return context
+        context = {'list' : dataList}
+        return context
+
 
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 
