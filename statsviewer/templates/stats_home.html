@@ -22,4 +22,11 @@
   <li>A total of {{damage}} damage has been dealt.</li>
   <li>Players have been slain {{deaths}} times.</li>
 </ul>
+
+{% if user.is_authenticated %}
+<a class="nav-link" href="{% url 'game-create' %}"> Create game </a>
+<a class="nav-link" href="{% url 'player-create' %}"> Create player </a>
+<a class="nav-link" href="{% url 'instance-create' %}"> Create Instance </a>
+{% endif %}
+
 {% endblock %}
