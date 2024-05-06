@@ -1,7 +1,31 @@
+{% if list %}
+<table>
+    <tr>
+        <th>Player Name</th>
+        <th>Kills</th>
+        <th>Deaths</th>
+        <th>Assists</th>
+        <th>Gold</th>
+        <th>DMG</th>
+    </tr>
 {% for l in list %}
-
-<a class="nav-link" href="{{ l.get_absolution_url }}"> {{l.0}} </a>
+<tr>
+    <td>
+        <a class="nav-link" href="{{ l.get_absolution_url }}"> {{l.0}} </a>
+    </td>
+    <td>{{l.1}}</td>
+    <td>{{l.2}}</td>
+    <td>{{l.3}}</td>
+    <td>{{l.4}}</td>
+    <td>{{l.5}}</td>
 
 
 
 {% endfor %}
+</table>
+{% else %}
+<p> 
+    No games
+</p>
+
+{% endif %}
