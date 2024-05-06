@@ -38,6 +38,7 @@ class playerDetailView(generic.DetailView):
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         player = self.object
+        #player, kils, deaths, assists, gold, damage, wins, losses
         dataList = [player,0,0,0,0,0,0,0]
         instances = PlayerInstance.objects.filter(player = player.playerid)
         #swag method
@@ -54,9 +55,21 @@ class playerDetailView(generic.DetailView):
             dataList[5] += pi.damage
         context = {'list' : dataList}
         return context
+def gameListView(request):
+    allGames = Game.objects.all()
+    gameList = []
+    for g in allGames:
+        dataList = [g]
+        playerInstances = PlayerInstance.objects.filter(game = g.pk)
+        for p in playerInstances:
+            dataList.append(p)
+        gameList.append(dataList)
+        
 
-class gameListView(generic.ListView):
-    model = Game
+    return render(request, 'game_list.html', {'list' : gameList})
+
+##class gameListView(generic.ListView):
+    ##model = Game
 
 class gameDetailView(generic.DetailView):
     model = Game
