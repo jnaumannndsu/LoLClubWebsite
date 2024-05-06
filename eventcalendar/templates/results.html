@@ -7,6 +7,7 @@
 {% for r in results %}
 <div class="row justify-content-center">
     <div class="col-sm-4"></div>
+    <a href = "{{ r.get_absolute_url }}" style="text-decoration: none">
 <div class="card ndsu" style="width: 450px;">
     <div class="card-header" style="text-align: center">
         {{r.name}} - {{r.date}}
@@ -16,6 +17,7 @@
       <li class="list-group-item ndsu" style="text-align: center; border: 1px solid #FFC82E">{{r.division}}</li>
     </ul>
   </div>
+</a>
   <div class="col-sm-4"></div>
 </div>
 
@@ -24,6 +26,10 @@
 <p> 
     No results
 </p>
+{% endif %}
+
+{% if user.is_authenticated %}
+<a class="nav-link" href="{% url 'result-create' %}"> Create result </a>
 {% endif %}
 
 {% endblock %}

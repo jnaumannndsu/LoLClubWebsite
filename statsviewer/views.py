@@ -152,5 +152,5 @@ class PlayerInstanceUpdate(PermissionRequiredMixin, CreateView):
     
 class PlayerInstanceDelete(PermissionRequiredMixin, DeleteView):
     model = PlayerInstance
-    success_url = reverse_lazy('player_list')
+    success_url = reverse_lazy('game_list')
     permission_required = 'statsviewer.delete_playerinstance'

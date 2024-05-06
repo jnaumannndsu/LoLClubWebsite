@@ -56,6 +56,8 @@ class eventDetailView(generic.DetailView):
         context = {'list' : dataList}
         return context
 
+class ResultDetailView(generic.DetailView):
+    model = Result
 
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.contrib.auth.mixins import PermissionRequiredMixin
@@ -75,4 +77,17 @@ class EventDelete(PermissionRequiredMixin, DeleteView):
     success_url = reverse_lazy('calendar')
     permission_required = 'eventcalendar.delete_event'
 
+class ResultCreate(PermissionRequiredMixin, CreateView):
+    model = Result
+    fields = ['name', 'date', 'score', 'division']
+    permission_required = 'eventcalendar.add_result'
 
+class ResultUpdate(PermissionRequiredMixin, UpdateView):
+    model = Result
+    fields = '__all__'
+    permission_required = 'eventcalendar.change_result'
+
+class ResultDelete(PermissionRequiredMixin, DeleteView):
+    model = Result
+    success_url = reverse_lazy('results')
+    permission_required = 'eventcalendar.delete_result'

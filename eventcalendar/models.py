@@ -60,6 +60,10 @@ class Result(models.Model):
     date = models.DateField()
     score = models.CharField(max_length=5)
     division = models.CharField(max_length=20)
+
+    def get_absolute_url(self):
+        return reverse("result-detail", kwargs={"pk": self.pk})
+    
     
 class Hof(models.Model):
     tourneyName = models.CharField(max_length=30)
