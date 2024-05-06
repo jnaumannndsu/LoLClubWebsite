@@ -37,6 +37,8 @@ class PlayerInstance(models.Model):
 
     def __str__(self):
         return self.ign + "--" + str(self.instanceid)
+    def get_absolute_url(self):
+        return reverse("game-detail", args=[str(self.instanceid)])
 
 class Player(models.Model):
     class Meta:
