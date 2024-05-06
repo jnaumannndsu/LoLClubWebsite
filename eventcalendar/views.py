@@ -58,17 +58,21 @@ class eventDetailView(generic.DetailView):
 
 
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
+from django.contrib.auth.mixins import PermissionRequiredMixin
 
-class EventCreate(CreateView):
+class EventCreate(PermissionRequiredMixin,CreateView):
     model = Event
     fields = ['eventID', 'startTime', 'endTime', 'eventName']
+    permission_required = 'eventcalendar.add_event'
 
-class EventUpdate(UpdateView):
+class EventUpdate(PermissionRequiredMixin,UpdateView):
     model = Event
     fields = '__all__'
+    permission_required = 'eventcalendar.update_event'
 
-class EventDelete(DeleteView):
+class EventDelete(PermissionRequiredMixin, DeleteView):
     model = Event
     success_url = reverse_lazy('calendar')
+    permission_required = 'eventcalendar.delete_event'
 
 
