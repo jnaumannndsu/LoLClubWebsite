@@ -3,19 +3,29 @@
 {% block content %}
 
 {% if events %}
-
-{% for e in events %}
-<a href = "{{ e.get_absolute_url }}">
-<div class="card text-yellow bg-success mb-3" style="max-width: 18rem;">
-    <div class="card-header">{{e.eventName}}</div>
-    <div class="card-body">
-      <h5 class="card-title">{{e.eventName}}</h5>
-      <p class="card-text">{{e.startTime}}{%if e.endTime%} - {{e.endTime}}{% endif %}</p>
+<h1 class="center">Upcoming Events:</h1>
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-sm-4"> <!-- Adjust column size as needed -->
+            {% for e in events %}
+                <a href = "{{ e.get_absolute_url }}" style="text-decoration: none">
+                    <div class="card bg-success mb-3" style="color: #FFC82E; max-width: 450px;">
+                        <div class="card-header">{{e.eventName}}</div>
+                        <div class="card-body">
+                            <h5 class="card-title">{{e.eventName}}</h5>
+                            <p class="card-text">{{e.startTime}}{%if e.endTime%} - {{e.endTime}}{% endif %}</p>
+                        </div>
+                    </div>
+                </a>
+                <br>
+            {% endfor %}
+        </div>
     </div>
-  </div>
-</a>
-<br></br>
-{% endfor %}
+</div>
+
+
+<div class="col-sm-4"></div>
+</div>
 {% else %}
 <p> 
     No upcoming events cutie!
