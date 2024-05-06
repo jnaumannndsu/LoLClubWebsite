@@ -15,5 +15,10 @@ urlpatterns = [
     path('calendar/create/', views.EventCreate.as_view(), name = 'event-create'),
     path('calendar/<int:pk>/update', views.EventUpdate.as_view(), name = 'event-update'),
     path('calendar/<int:pk>/delete', views.EventDelete.as_view(), name = 'event-delete'),
+    path('results/create/', views.ResultCreate.as_view(), name = 'result-create'),
+    path('results/<int:pk>', views.ResultDetailView.as_view(), name = 'result-detail'),
+    path('results/<int:pk>/update', views.ResultUpdate.as_view(), name = 'result-update'),
+    path('results/<int:pk>/delete', views.ResultDelete.as_view(), name = 'result-delete'),
+
 ]
 

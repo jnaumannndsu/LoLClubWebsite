@@ -33,6 +33,12 @@
     <td>{{list.6}}</td>
     <td>{{list.7}}</td>
 </table>
+
+{% if user.is_authenticated %}
+    <li><a href="{% url 'player-update' list.0.playerid %}">Update player</a></li>
+    <li><a href="{% url 'player-delete' list.0.playerid %}">Delete player</a></li>
+{% endif %}
+
 {% else %}
 <p> 
     No player found. <a href="{% url 'player-list' %}"> View Players </a>

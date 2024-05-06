@@ -1,0 +1,9 @@
+{% extends 'base_generic.html' %}
+{% block content %}
+
+{% if user.is_authenticated%}
+<li><a href="{% url 'result-update' result.id %}">Update result</a></li>
+<li><a href="{% url 'result-delete' result.id %}">Delete result</a></li>
+{% endif %}
+
+{% endblock %}
