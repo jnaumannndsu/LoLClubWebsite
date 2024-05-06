@@ -1,1 +1,29 @@
-<p> hi {{ player.name }} </p>
+{% if list %}
+<table>
+    <tr>
+        <th>Player Name</th>
+        <th>Kills</th>
+        <th>Deaths</th>
+        <th>Assists</th>
+        <th>Gold</th>
+        <th>DMG</th>
+    </tr>
+
+<tr>
+    <td>
+        <a class="nav-link" href="{{ l.0.get_absolute_url }}"> {{list.0}} </a>
+    </td>
+    <td>{{list.1}}</td>
+    <td>{{list.2}}</td>
+    <td>{{list.3}}</td>
+    <td>{{list.4}}</td>
+    <td>{{list.5}}</td>
+
+
+</table>
+{% else %}
+<p> 
+    No games
+</p>
+
+{% endif %}
