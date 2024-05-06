@@ -13,3 +13,4 @@ urlpatterns = [
     path('calendar/<int:pk>', views.eventDetailView.as_view(), name = 'event-detail'),
     path('stats/', include('statsviewer.urls')),
 ]
+
