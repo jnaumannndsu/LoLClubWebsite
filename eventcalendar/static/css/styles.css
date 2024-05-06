@@ -1,8 +1,10 @@
 .img-link{
     max-height: 150px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .center {
-    text-align: center  
+    text-align: center;  
 }
-
