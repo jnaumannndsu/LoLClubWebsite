@@ -4,4 +4,7 @@
 
 <h4> Test {{ event.eventName }} </h4>
 
+<li><a href="{% url 'event-update' event.eventID %}">Update event</a></li>
+<li><a href="{% url 'event-delete' event.eventID %}">Delete event</a></li>
+
 {% endblock %}
