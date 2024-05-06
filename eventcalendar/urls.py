@@ -12,6 +12,8 @@ urlpatterns = [
     #me trying to make event detail view 
     path('calendar/<int:pk>', views.eventDetailView.as_view(), name = 'event-detail'),
     path('stats/', include('statsviewer.urls')),
-    path('calendar/create/', views.EventCreate.as_view(), name = 'event-create')
+    path('calendar/create/', views.EventCreate.as_view(), name = 'event-create'),
+    path('calendar/<int:pk>/update', views.EventUpdate.as_view(), name = 'event-update'),
+    path('calendar/<int:pk>/delete', views.EventDelete.as_view(), name = 'event-delete'),
 ]
 

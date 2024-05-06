@@ -2,6 +2,7 @@ from datetime import datetime
 from django.shortcuts import render
 from eventcalendar.models import Event, Game, Lan, Tournament, Hof, Result
 from django.views import generic
+from django.urls import reverse_lazy
 
 
 # Create your views here.
@@ -41,3 +42,13 @@ from django.views.generic.edit import CreateView, UpdateView, DeleteView
 class EventCreate(CreateView):
     model = Event
     fields = ['eventID', 'startTime', 'endTime', 'eventName']
+
+class EventUpdate(UpdateView):
+    model = Event
+    fields = '__all__'
+
+class EventDelete(DeleteView):
+    model = Event
+    success_url = reverse_lazy('calendar')
+
+
