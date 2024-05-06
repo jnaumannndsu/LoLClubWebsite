@@ -28,7 +28,9 @@
 {% endif %}
 
 
+{% if user.is_authenticated %}
 <li><a href="{% url 'event-update' list.0.eventID %}">Update event</a></li>
 <li><a href="{% url 'event-delete' list.0.eventID %}">Delete event</a></li>
+{% endif %}
 
 {% endblock %}

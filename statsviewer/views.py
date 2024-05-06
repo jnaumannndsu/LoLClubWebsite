@@ -104,38 +104,49 @@ class gameDetailView(generic.DetailView):
         context = {'list' : dataList}
         return context
 
-class GameCreate(CreateView):
+from django.contrib.auth.mixins import PermissionRequiredMixin
+
+class GameCreate(PermissionRequiredMixin, CreateView):
     model = Game
     fields = ['winner']
+    permission_required = 'statsviewer.add_game'
 
-class GameUpdate(UpdateView):
+class GameUpdate(PermissionRequiredMixin, UpdateView):
     model = Game
     fields = '__all__'
+    permission_required = 'statsviewer.update_game'
 
-class GameDelete(DeleteView):
+class GameDelete(PermissionRequiredMixin, DeleteView):
     model = Game
     success_url = reverse_lazy('game_list')
+    permission_required = 'statsviewer.delete_game'
 
-class PlayerCreate(CreateView):
+class PlayerCreate(PermissionRequiredMixin, CreateView):
     model = Player
     fields = ['name']
+    permission_required = 'statsviewer.add_player'
 
-class PlayerUpdate(UpdateView):
+class PlayerUpdate(PermissionRequiredMixin, UpdateView):
     model = Player
     fields = '__all__'
+    permission_required = 'statsviewer.update_player'
 
-class PlayerDelete(DeleteView):
+class PlayerDelete(PermissionRequiredMixin, DeleteView):
     model = Player
     success_url = reverse_lazy('player_list')
+    permission_required = 'statsviewer.delete_player'
 
-class PlayerInstanceCreate(CreateView):
+class PlayerInstanceCreate(PermissionRequiredMixin, CreateView):
     model = PlayerInstance
     fields = ['game', 'playerlocation', 'role', 'kills', 'deaths', 'assists', 'gold', 'damage', 'ign', 'player']
+    permission_required = 'statsviewer.add_playerinstance'
 
-class PlayerInstanceUpdate(CreateView):
+class PlayerInstanceUpdate(PermissionRequiredMixin, CreateView):
     model = PlayerInstance
     fields = '__all__'
+    permission_requierd = 'stasviewer.update_playerinstance'
     
-class PlayerInstanceDelete(DeleteView):
+class PlayerInstanceDelete(PermissionRequiredMixin, DeleteView):
     model = PlayerInstance
     success_url = reverse_lazy('player_list')
+    permission_required = 'statsviewer.delete_playerinstance'
