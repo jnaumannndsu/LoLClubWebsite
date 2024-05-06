@@ -68,7 +68,7 @@ class EventCreate(PermissionRequiredMixin,CreateView):
 class EventUpdate(PermissionRequiredMixin,UpdateView):
     model = Event
     fields = '__all__'
-    permission_required = 'eventcalendar.update_event'
+    permission_required = 'eventcalendar.change_event'
 
 class EventDelete(PermissionRequiredMixin, DeleteView):
     model = Event

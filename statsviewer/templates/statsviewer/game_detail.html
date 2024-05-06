@@ -27,6 +27,11 @@
         <tr class="red_team"><td>{{list.10.player}}</td><td class="center">{{list.10.kills}}/{{list.10.deaths}}/{{list.10.assists}}</td><td class="center">{{list.10.gold}}</td><td class="center">{{list.10.damage}}</td></tr>
     </br>
     </table>
+    {% if user.is_authenticated %}
+    <li><a href="{% url 'game-update' list.0.gameid %}">Update game</a></li>
+    <li><a href="{% url 'game-delete' list.0.gameid %}">Delete game</a></li>
+    {% endif %}
+
 {% else %}
 <p>No game found.</p>
 {% endif %}

@@ -118,7 +118,7 @@ class GameCreate(PermissionRequiredMixin, CreateView):
 class GameUpdate(PermissionRequiredMixin, UpdateView):
     model = Game
     fields = '__all__'
-    permission_required = 'statsviewer.update_game'
+    permission_required = 'statsviewer.change_game'
 
 class GameDelete(PermissionRequiredMixin, DeleteView):
     model = Game
@@ -133,7 +133,7 @@ class PlayerCreate(PermissionRequiredMixin, CreateView):
 class PlayerUpdate(PermissionRequiredMixin, UpdateView):
     model = Player
     fields = '__all__'
-    permission_required = 'statsviewer.update_player'
+    permission_required = 'statsviewer.change_player'
 
 class PlayerDelete(PermissionRequiredMixin, DeleteView):
     model = Player
@@ -148,7 +148,7 @@ class PlayerInstanceCreate(PermissionRequiredMixin, CreateView):
 class PlayerInstanceUpdate(PermissionRequiredMixin, CreateView):
     model = PlayerInstance
     fields = '__all__'
-    permission_requierd = 'stasviewer.update_playerinstance'
+    permission_required = 'stasviewer.change_playerinstance'
     
 class PlayerInstanceDelete(PermissionRequiredMixin, DeleteView):
     model = PlayerInstance
