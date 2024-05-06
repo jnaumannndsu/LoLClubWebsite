@@ -1,7 +1,9 @@
 from typing import Any
 from django.shortcuts import get_object_or_404, redirect, render
+from django.urls import reverse_lazy
 from django.views import generic
-from statsviewer.models import *
+from statsviewer.models import  *
+from django.views.generic.edit import CreateView, UpdateView, DeleteView
 
 # Create your views here.
 def stats(request):
@@ -83,3 +85,39 @@ class gameDetailView(generic.DetailView):
             dataList.append(p)
         context = {'list' : dataList}
         return context
+
+class GameCreate(CreateView):
+    model = Game
+    fields = ['winner']
+
+class GameUpdate(UpdateView):
+    model = Game
+    fields = '__all__'
+
+class GameDelete(DeleteView):
+    model = Game
+    success_url = reverse_lazy('game_list')
+
+class PlayerCreate(CreateView):
+    model = Player
+    fields = ['name']
+
+class PlayerUpdate(UpdateView):
+    model = Player
+    fields = '__all__'
+
+class PlayerDelete(DeleteView):
+    model = Player
+    success_url = reverse_lazy('player_list')
+
+class PlayerInstanceCreate(CreateView):
+    model = PlayerInstance
+    fields = ['game', 'playerlocation', 'role', 'kills', 'deaths', 'assists', 'gold', 'damage', 'ign', 'player']
+
+class PlayerInstanceUpdate(CreateView):
+    model = PlayerInstance
+    fields = '__all__'
+    
+class PlayerInstanceDelete(DeleteView):
+    model = PlayerInstance
+    success_url = reverse_lazy('player_list')
