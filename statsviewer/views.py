@@ -1,3 +1,4 @@
+from typing import Any
 from django.shortcuts import get_object_or_404, redirect, render
 from django.views import generic
 from statsviewer.models import *
@@ -55,6 +56,8 @@ class playerDetailView(generic.DetailView):
             dataList[5] += pi.damage
         context = {'list' : dataList}
         return context
+    
+
 def gameListView(request):
     allGames = Game.objects.all()
     gameList = []
@@ -68,8 +71,15 @@ def gameListView(request):
 
     return render(request, 'game_list.html', {'list' : gameList})
 
-##class gameListView(generic.ListView):
-    ##model = Game
-
 class gameDetailView(generic.DetailView):
     model = Game
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        game = self.object
+        dataList = [game]
+        playerInstances = PlayerInstance.objects.filter(game = game.pk)
+        for p in playerInstances:
+            dataList.append(p)
+        context = {'list' : dataList}
+        return context
