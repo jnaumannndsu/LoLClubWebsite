@@ -8,3 +8,31 @@
 .center {
     text-align: center;  
 }
+
+th{
+    border: 1px solid black;
+    text-align: center; 
+    padding-left: 10px;
+    padding-right: 10px;
+    font-weight: bold;
+}
+
+table{
+    border: 1px solid black;
+    margin-left:auto;
+    margin-right: auto;
+}
+
+td {
+    border: 1px solid black;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+.blue_team{
+    background-color: cornflowerblue;
+}
+
+.red_team{
+    background-color: crimson;
+}
