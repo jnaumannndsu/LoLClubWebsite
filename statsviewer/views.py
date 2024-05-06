@@ -7,7 +7,25 @@ from django.views.generic.edit import CreateView, UpdateView, DeleteView
 
 # Create your views here.
 def stats(request):
-    return render(request, 'stats_home.html')
+    total_damage = 0
+    total_gold = 0
+    total_deaths = 0
+    num_players = Player.objects.all().count
+    num_games = Game.objects.all().count
+    for p in PlayerInstance.objects.all():
+        total_damage += p.damage
+        total_deaths += p.deaths
+        total_gold += p.gold
+
+    context = {
+        'num_players': num_players,
+        'num_games' : num_games,
+        'damage' : total_damage,
+        'deaths' : total_deaths,
+        'gold' : total_gold,
+    }
+
+    return render(request, 'stats_home.html', context=context)
 
 def playerListView(request):
     allPlayers = Player.objects.all()

@@ -8,7 +8,15 @@
   </ol> 
 </nav>
 <hr>
-<a class="nav-link" href="{% url 'player-list' %}">Player Stats</a>
-<a class="nav-link" href="{% url 'game-list' %}">LAN Games</a>
-
+<a class="btn ndsu" href="{% url 'player-list' %}" role="button" style="margin-left: 15px;">Player Stats</a>
+<a class="btn ndsu" href="{% url 'game-list' %}" role="button">LAN Games</a>
+<hr>
+<h2 style="margin-left:15px">  Fun Facts:</h2>
+<ul>
+  <li>As a club, we have hosted {{num_games}} LAN games</li>
+  <li>{{num_players}} club members have participated in those games</li>
+  <li>Players have earned {{gold}} gold.</li>
+  <li>A total of {{damage}} damage has been dealt.</li>
+  <li>Players have been slain {{deaths}} times.</li>
+</ul>
 {% endblock %}
