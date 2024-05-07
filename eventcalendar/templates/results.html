@@ -8,16 +8,18 @@
 <div class="row justify-content-center">
     <div class="col-sm-4"></div>
     <a href = "{{ r.get_absolute_url }}" style="text-decoration: none">
-<div class="card ndsu" style="width: 450px;">
-    <div class="card-header" style="text-align: center">
-        {{r.name}} - {{r.date}}
-    </div>
-    <ul class="list-group list-group-flush">
-      <li class="list-group-item ndsu" style="text-align: center; border: 1px solid #FFC82E">{{r.score}}</li>
-      <li class="list-group-item ndsu" style="text-align: center; border: 1px solid #FFC82E">{{r.division}}</li>
-    </ul>
-  </div>
-</a>
+      <div class="col-sm-4">
+        <div class="card ndsu" style="width: 450px;">
+          <div class="card-header" style="text-align: center">
+            {{r.name}} - {{r.date}}
+          </div>
+          <ul class="list-group list-group-flush">
+            <li class="list-group-item ndsu" style="text-align: center; border: 1px solid #FFC82E">{{r.score}}</li>
+            <li class="list-group-item ndsu" style="text-align: center; border: 1px solid #FFC82E">{{r.division}}</li>
+          </ul>
+        </div>
+        <br>
+    </a>
   <div class="col-sm-4"></div>
 </div>
 

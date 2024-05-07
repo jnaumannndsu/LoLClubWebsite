@@ -5,21 +5,17 @@
 
 
 {% if list.1.league %}
-<h4> Game Info:</h4>
-<h4> Team -- {{ list.1.get_team_display }} </h4>
-<h4> League -- {{ list.1.get_league_display }} </h4>
-<h4> Streamed -- {{ list.1.get_status_display }} </h4>
 <div class="row justify-content-center">
     <div class="col-sm-4"></div>
     <div class="col-sm-4">
         <h4 class="center"> Game Info: </h4>
         <div class="card game" style="width: 450px; margin-left: auto; margin-right: auto;">
             <div class="card-header" style="text-align: center">
-                This event
+                {{list.0.eventName}}
             </div>
             <ul class="list-group list-group-flush">
-                <li class="list-group-item lan" style="text-align: center; border: 1px solid #FFC82E">{{list.0.startTime}} - {{list.0.endTime}}</li>
-                <li class="list-group-item ndsu" style="text-align: center; border: 1px solid #FFC82E">Team: {{list.1.get_team_display}}</li>
+                <li class="list-group-item game" style="text-align: center; border: 1px solid #FFC82E">{{list.0.startTime}} - {{list.0.endTime}}</li>
+                <li class="list-group-item game" style="text-align: center; border: 1px solid #FFC82E">Team: {{list.1.get_team_display}}</li>
                 <li class="list-group-item game" style="text-align: center; border: 1px solid #FFC82E">League: {{list.1.get_league_display}}</li>
                 <li class="list-group-item game" style="text-align: center; border: 1px solid #FFC82E">Streamed: {{list.1.get_status_display}}</li>
             </ul>
@@ -30,14 +26,45 @@
 {% endif %}
 
 {% if list.1.location %}
-<h4> Lan Info:</h4>
-<h4> Location -- {{ list.1.location }} </h4>
+<div class="row justify-content-center">
+    <div class="col-sm-4"></div>
+    <div class="col-sm-4">
+        <h4 class="center"> LAN Info: </h4>
+        <div class="card lan" style="width: 450px; margin-left: auto; margin-right: auto;">
+            <div class="card-header" style="text-align: center">
+                {{list.0.eventName}}
+            </div>
+            <ul class="list-group list-group-flush">
+                <li class="list-group-item lan" style="text-align: center; border: 1px solid #FFC82E">{{list.0.startTime}} - {{list.0.endTime}}</li>
+                <li class="list-group-item lan" style="text-align: center; border: 1px solid #FFC82E">Location: {{list.1.location}}</li>
+            </ul>
+        </div>
+    </div>
+<div class="col-sm-4"></div>
+</div>
 {% endif %}
 
 {% if list.1.signup %}
-<h4> Tournament Info:</h4>
-<h4> Streamed --  {{ list.1.get_status_display }} </h4>
-<h4> Signup --  {{ list.1.signup }} </h4>
+<div class="row justify-content-center">
+    <div class="col-sm-4"></div>
+    <div class="col-sm-4">
+        <h4 class="center"> Tournament Info: </h4>
+        <div class="card tournament" style="width: 450px; margin-left: auto; margin-right: auto;">
+            <div class="card-header" style="text-align: center">
+                {{list.0.eventName}}
+            </div>
+            <ul class="list-group list-group-flush">
+                <li class="list-group-item tournament" style="text-align: center; border: 1px solid crimson">{{list.0.startTime}} - {{list.0.endTime}}</li>
+                <li class="list-group-item tournament" style="text-align: center; border: 1px solid crimson">Streamed: {{list.1.get_status_display}}</li>
+            </ul>
+        </div>
+        <div class="col text-allign: center">
+        <a type="button" class="btn btn-primary btn-lg tournament" href="{{ list.1.signup }}" target="_blank">Sign up!</a>
+        </div>
+    </div>
+
+<div class="col-sm-4"></div>
+</div>
 {% endif %}
 
 
