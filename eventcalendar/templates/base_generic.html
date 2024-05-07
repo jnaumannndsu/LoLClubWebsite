@@ -16,7 +16,7 @@
 <nav class="navbar navbar-expand-lg fixed-top ndsu">
     <div class="container-fluid">
       <a class="navbar-brand" href="#">
-        <img src="https://media.discordapp.net/attachments/1203520214013186098/1236735444339789894/GREEN_NDSU_LoL_Club_Logo_2022_color_with_text.png?ex=66391723&is=6637c5a3&hm=dda713698ac655c77998ffb9da093bea07c7bc4f7af59a08c1f3bcb2a8913639&=&format=webp&quality=lossless&width=40&height=40">
+        <img src="https://media.discordapp.net/attachments/1203520214013186098/1237165919810355302/GREEN_NDSU_LoL_Club_Logo_2022_color_with_text1.png?ex=663aa80c&is=6639568c&hm=eac5e5de35548e73be0bfb59148eea1ad8845be186394094f775c4be1ebeca55&=&format=webp&quality=lossless&width=50&height=50">
       </a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
@@ -47,6 +47,12 @@
           <li class="nav-item">
             <a class="nav-link active" href="{% url 'stats-home' %}">LAN Stats</a>
           </li>
+          <li class="nav-item">
+            <a class="nav-link active" href="https://forms.gle/3YmzNbiVhRk1UHbXA" target="_blank">Give us Feedback</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active" href="https://myndsu.ndsu.edu/organization/lolclub" target="_blank">Join The Club!</a>
+          </li>
         </ul>
       </div>
       {% if user.is_authenticated %}
@@ -58,7 +64,7 @@
       </span>
       {% else %}
       <span class="navbar-text">
-        <a href="{% url 'login' %}?next={{ request.path }}">Login</a>
+        <a href="{% url 'login' %}?next={{ request.path }}">Officer Login</a>
       </span>
       {% endif %}
     </div>

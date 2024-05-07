@@ -42,6 +42,22 @@ td {
     color: #FFC82E;
 }
 
+.game{
+    background-color: purple;
+    color: #FFC82E;
+}
+
+.lan{
+    background-color: #005643;
+    color: #FFC82E;
+}
+
+.tournament{
+    background-color: cornflowerblue;
+    color: crimson;
+}
+
+
 body{
     background-image: url('https://media.discordapp.net/attachments/1203520214013186098/1236773605577199626/Screenshot_2024-05-05_15-16-28.png?ex=66393aad&is=6637e92d&hm=0297f355a9e9d6de8f40dacf7d335fc91f039c2aaa0ff4e687558841ca275e9f&=&format=webp&quality=lossless&width=1191&height=670');
     background-repeat: no-repeat;
@@ -49,3 +65,4 @@ body{
     background-attachment: fixed;
 
 }
+

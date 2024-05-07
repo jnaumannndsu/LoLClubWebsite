@@ -1,9 +1,19 @@
 {% extends 'stats_generic.html' %}
 {% block content %}
-
 {% if user.is_authenticated%}
+<div>
+<table>
+</tr>
+    <tr class="center" style="background-color: gold;"><th>Name</th><th>KDA</th><th>Gold</th><th>Damage</th></tr>
+    <tr class="blue_team"><td>{{playerinstance.player}}</td><td class="center">{{playerinstance.kills}}/{{playerinstance.deaths}}/{{playerinstance.assists}}</td><td class="center">{{playerinstance.gold}}</td><td class="center">{{playerinstance.damage}}</td></tr>
+</div>
+<div>
+    <ul>
+        <li><a href="{% url 'game-list' %}">Back</a>
 <li><a href="{% url 'instance-update' playerinstance.instanceid %}">Update instance</a></li>
 <li><a href="{% url 'instance-delete' playerinstance.instanceid %}">Delete instance</a></li>
+</ul>
+</div>
 {% endif %}
 
 {% endblock %}
