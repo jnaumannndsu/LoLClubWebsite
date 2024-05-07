@@ -7,7 +7,7 @@
 {% for r in results %}
 <div class="row justify-content-center">
     <div class="col-sm-4"></div>
-    <a href = "{{ r.get_absolute_url }}" style="text-decoration: none">
+    {% if user.is_authenticated %}<a href = "{{ r.get_absolute_url }}" style="text-decoration: none"> {% endif %}
       <div class="col-sm-4">
         <div class="card ndsu" style="width: 450px;">
           <div class="card-header" style="text-align: center">
@@ -19,7 +19,8 @@
           </ul>
         </div>
         <br>
-    </a>
+        {% if user.is_authenticated %}</a>{% endif %}
+      </div>
   <div class="col-sm-4"></div>
 </div>
 
